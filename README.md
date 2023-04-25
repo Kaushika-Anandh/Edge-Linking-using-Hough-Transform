@@ -6,66 +6,97 @@ To write a Python program to detect the lines using Hough Transform.
 Anaconda - Python 3.7
 
 ## Algorithm:
-### Step1:
+### Step 1:
+Import all the necessary modules for the program.
 <br>
 
-### Step2:
+### Step 2:
+Load a image using imread() from cv2 module.
 <br>
 
-### Step3:
+### Step 3:
+Convert the image to grayscale.
 <br>
 
-### Step4:
+### Step 4:
+Using Canny operator from cv2,detect the edges of the image.
 <br>
 
-### Step5:
+### Step 5:
+Using the HoughLinesP(),detect line co-ordinates for every points in the images.
 <br>
 
+### Step 6:
+Using For loop,draw the lines on the found co-ordinates.
+<br>
+
+### Step 7:
+Display the image.
+<br>
 
 ## Program:
 ```Python
+# program by: Kaushika
+# reg no: 212221230048
+```
+### Read image and convert it to grayscale image
+```python
+import cv2
+import numpy as np
+import matplotlib.pyplot as plt
 
-# Read image and convert it to grayscale image
+# load the image
+in_img=cv2.imread('hq.PNG')
+in_img.shape
+in_img= cv2.resize(in_img, (510,550))
+```
+
+### Find the edges in the image using canny detector and display
+```python
+in_img= cv2.resize(in_img, (510,550))
+# convert to gray scale
+gray_img=cv2.cvtColor(in_img,cv2.COLOR_BGR2GRAY)
+noiseless_img = cv2.GaussianBlur(gray_img,(1,1),0)
 
 
-
-# Find the edges in the image using canny detector and display
-
-
-
-# Detect points that form a line using HoughLinesP
-
-
-
-# Draw lines on the image
+cv2.imshow('original image',in_img)
+cv2.imshow('gray image',gray_img)
+cv2.imshow('blurred image',noiseless_img)
+cv2.waitKey(0)
+cv2.destroyAllWindows()
+```
 
 
+### Detect points that form a line using HoughLinesP
+```python
+lines=cv2.HoughLinesP(edges,1,np.pi/180,threshold=80,minLineLength=50,maxLineGap=50)
+```
 
-# Display the result
-
-
-
-
+### Draw lines on the image
+```python
+for line in lines:
+    x1,y1,x2,y2=line[0]
+    cv2.line(in_img,(x1,y1),(x2,y2),(0,0,205),2)
+```
+### Display the result
+```python
+plt.imshow(in_img)
+plt.title('HOUGH')
+plt.axis('off')
 ```
 ## Output
 
 ### Input image and grayscale image
-<br>
-<br>
-<br>
+![](1.PNG)
 <br>
 
 ### Canny Edge detector output
-<br>
-<br>
-<br>
+![](2.PNG)
 <br>
 
 
 ### Display the result of Hough transform
-<br>
-<br>
-<br>
+![](3.png)
 <br>
 
 

@@ -64,6 +64,13 @@ cv2.imshow('gray image',gray_img)
 cv2.imshow('blurred image',noiseless_img)
 cv2.waitKey(0)
 cv2.destroyAllWindows()
+
+edges = cv2.Canny(noiseless_img, 50, 150)
+
+cv2.imshow('blurred image',noiseless_img)
+cv2.imshow('canny edges image',edges)
+cv2.waitKey(0)
+cv2.destroyAllWindows()
 ```
 
 

@@ -109,7 +109,7 @@ plt.axis('off')
 
 **Display the result of Hough transform**
 
-<img src="https://github.com/Kaushika-Anandh/Edge-Linking-using-Hough-Transform/blob/main/3.png" width="380" height="410">
+<img src="https://github.com/Kaushika-Anandh/Edge-Linking-using-Hough-Transform/blob/main/3.png" width="200" height="230">
 
 ## Result:
 Thus the program is written with python and OpenCV to detect lines using Hough transform. 
